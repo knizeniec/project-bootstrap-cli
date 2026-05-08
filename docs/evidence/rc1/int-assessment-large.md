@@ -33,13 +33,17 @@ Local Linux workspace using repository docs set
 
 ## Command or workflow hint
 
-Run markdown lint, then execute large-scope intake and verify complete document set selection including governance and operations depth.
-
-`git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2`
+```bash
+cd /home/hexaper/project-bootstrap-cli
+git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
+PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/int-assessment-large.md
+grep -n "RC-1-INT-ASS-LARGE" docs/05_testing_acceptance/03_verification_evidence_index.md
+grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+```
 
 ## Artifact pattern
 
-int-assessment-large-YYYY-MM-DD.md
+docs/evidence/rc1/artifacts/RC1-INT-ASS-LARGE-2026-05-08.md
 
 ## Result
 

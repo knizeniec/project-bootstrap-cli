@@ -17,15 +17,15 @@ RC-1-REL-REHEARSAL
 
 ## Date
 
-TBD
+2026-05-15 (planned)
 
 ## Branch/Revision
 
-TBD
+main @ 95eda1f (planning baseline)
 
 ## Executor
 
-TBD (release manager + operations lead)
+Release manager + operations lead
 
 ## Environment
 
@@ -33,11 +33,17 @@ Staging-like workspace
 
 ## Command or workflow hint
 
-Run full release rehearsal sequence including rollback decision drill
+```bash
+cd /home/hexaper/project-bootstrap-cli
+git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
+PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/release-rehearsal.md
+grep -n "RC-1-REL-REHEARSAL" docs/05_testing_acceptance/03_verification_evidence_index.md
+grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+```
 
 ## Artifact pattern
 
-release-rehearsal-DATE.md
+docs/evidence/rc1/artifacts/RC1-REL-REHEARSAL-2026-05-08.md
 
 ## Result
 
@@ -45,8 +51,8 @@ Planned
 
 ## Notes
 
-Record timeline, gate outcomes, rollback decision checkpoint, and actions.
+Planned run; record timeline, gate outcomes, rollback decision checkpoint, and follow-up actions.
 
 ## Linked issue IDs
 
-- TBD
+- RC1-EVID-211

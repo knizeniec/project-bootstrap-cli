@@ -33,13 +33,17 @@ Local Linux workspace using repository docs set
 
 ## Command or workflow hint
 
-Run markdown lint, then measure CLI response time for representative prompts (cold and warm) and log timings in evidence notes.
-
-`git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2`
+```bash
+cd /home/hexaper/project-bootstrap-cli
+git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
+PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/perf-response-time.md
+grep -n "RC-1-PERF-001" docs/05_testing_acceptance/03_verification_evidence_index.md
+grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+```
 
 ## Artifact pattern
 
-perf-response-time-YYYY-MM-DD.md
+docs/evidence/rc1/artifacts/RC1-PERF-001-2026-05-08.md
 
 ## Result
 

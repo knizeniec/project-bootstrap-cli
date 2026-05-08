@@ -17,15 +17,15 @@ RC-1-UAT-LITE-001
 
 ## Date
 
-TBD
+2026-05-14 (planned)
 
 ## Branch/Revision
 
-TBD
+main @ 95eda1f (planning baseline)
 
 ## Executor
 
-TBD (product owner + qa lead)
+Product owner + QA lead
 
 ## Environment
 
@@ -33,11 +33,17 @@ Staging-like workspace
 
 ## Command or workflow hint
 
-Guided CLI walkthrough of core workflow and sign-off checklist
+```bash
+cd /home/hexaper/project-bootstrap-cli
+git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
+PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/uat-lite-signoff.md
+grep -n "RC-1-UAT-LITE-001" docs/05_testing_acceptance/03_verification_evidence_index.md
+grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+```
 
 ## Artifact pattern
 
-uat-lite-signoff-DATE.md
+docs/evidence/rc1/artifacts/RC1-UAT-LITE-001-2026-05-08.md
 
 ## Result
 
@@ -45,8 +51,8 @@ Planned
 
 ## Notes
 
-Capture sign-off decision, open risks, and follow-up owners.
+Planned run; capture sign-off decision, open risks, follow-up owners, and target closure dates.
 
 ## Linked issue IDs
 
-- TBD
+- RC1-EVID-210

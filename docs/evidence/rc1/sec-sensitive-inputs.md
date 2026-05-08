@@ -13,28 +13,46 @@ source_of_truth: repo
 
 ## Run ID
 
-TBD
+RC-1-SEC-001
 
 ## Date
 
-TBD
+2026-05-13 (planned)
 
 ## Branch/Revision
 
-TBD
+main @ 95eda1f (planning baseline)
 
 ## Executor
 
-TBD
+Security lead with QA lead observer
+
+## Environment
+
+Local Linux workspace using repository docs set
+
+## Command or workflow hint
+
+```bash
+cd /home/hexaper/project-bootstrap-cli
+git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
+PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/sec-sensitive-inputs.md
+grep -n "RC-1-SEC-001" docs/05_testing_acceptance/03_verification_evidence_index.md
+grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+```
+
+## Artifact pattern
+
+docs/evidence/rc1/artifacts/RC1-SEC-001-2026-05-08.md
 
 ## Result
 
-TBD
+Planned
 
 ## Notes
 
-TBD
+Planned security check for NFR-004; record any unsafe echoes and mitigation actions.
 
 ## Linked issue IDs
 
-- TBD
+- RC1-EVID-209
