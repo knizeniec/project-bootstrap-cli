@@ -137,3 +137,8 @@ Phase 2+ roadmap (deferred): template customization, configurable review rules, 
 - [../01_strategy/01_product_vision.md](../01_strategy/01_product_vision.md)
 - [../03_architecture/01_solution_design.md](../03_architecture/01_solution_design.md)
 - [../07_delivery/06_readiness_tracker.md](../07_delivery/06_readiness_tracker.md)
+- [../05_testing_acceptance/01_test_strategy.md](../05_testing_acceptance/01_test_strategy.md)
+- [../05_testing_acceptance/03_verification_evidence_index.md](../05_testing_acceptance/03_verification_evidence_index.md)
+- [../07_delivery/07_release_plan.md](../07_delivery/07_release_plan.md)
+- [../06_security_operations/04_support_model.md](../06_security_operations/04_support_model.md)
+- [../06_security_operations/06_incident_response.md](../06_security_operations/06_incident_response.md)

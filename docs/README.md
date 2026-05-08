@@ -11,6 +11,11 @@ Core documentation has been adapted using project inputs from `docs_base.md` and
 - Product requirements: `02_product/01_prd.md`
 - Solution architecture: `03_architecture/01_solution_design.md`
 - Delivery readiness: `07_delivery/06_readiness_tracker.md`
+- Test strategy: `05_testing_acceptance/01_test_strategy.md`
+- Verification evidence index: `05_testing_acceptance/03_verification_evidence_index.md`
+- Release plan: `07_delivery/07_release_plan.md`
+- Support model: `06_security_operations/04_support_model.md`
+- Incident response: `06_security_operations/06_incident_response.md`
 
 ## Seeded files
 
@@ -20,10 +25,18 @@ Core documentation has been adapted using project inputs from `docs_base.md` and
 - `docs/03_architecture/01_solution_design.md`
 - `docs/07_delivery/06_readiness_tracker.md`
 
+## Added small-scope delivery files
+
+- `docs/05_testing_acceptance/01_test_strategy.md`
+- `docs/05_testing_acceptance/03_verification_evidence_index.md`
+- `docs/07_delivery/07_release_plan.md`
+- `docs/06_security_operations/04_support_model.md`
+- `docs/06_security_operations/06_incident_response.md`
+
 ## Why these files
 
 These are high-value starting points we can populate quickly through structured Q&A before implementation begins.
 
 ## Next step
 
-Answer targeted questions to replace placeholders and convert these from draft templates into project-specific records.
+Run initial verification and release rehearsal, then update evidence links and domain statuses in `07_delivery/06_readiness_tracker.md`.
