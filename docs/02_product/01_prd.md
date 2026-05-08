@@ -1,131 +1,139 @@
 ---
-title: Product Requirements Document Template
-status: draft
+title: Documentation Development Tool - Product Requirements Document
+status: active
 record_class: canonical
 audience: [internal, manager]
 owner: product-management
 capability: product
 phase: planning
 cadence: per-release
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
-
-# Product Requirements Document Template
-
-> **Purpose:** provide the canonical template for describing the product problem, target users, requirement set, and release intent for a feature or initiative.
-> **Audience:** product, delivery, design, engineering, and QA stakeholders who need a shared planning baseline before implementation and acceptance.
-> **When to update:** update when the product problem, goals, scope, requirements, acceptance expectations, or release assumptions materially change.
-
-## How to use this template
-
-Copy this file when a project needs a single narrative source for why a product increment exists and what success looks like. Keep this document concise, then push detailed inventories into the requirements and acceptance catalogs.
-
-- Keep every requirement and story traceable to an outcome or stakeholder need.
-- Move large tables into [02_requirements_catalog_TEMPLATE.md](02_requirements_catalog_TEMPLATE.md) and [05_acceptance_catalog_TEMPLATE.md](05_acceptance_catalog_TEMPLATE.md) once the list grows.
-- Remove placeholder bullets before publishing an active PRD.
-
-## What not to include
-
-- **Implementation timelines or delivery milestones** — scheduling belongs in the delivery plan ([../07_delivery/01_delivery_plan_TEMPLATE.md](../07_delivery/01_delivery_plan_TEMPLATE.md)). The PRD defines what to build and why; the delivery plan defines when.
-- **Architectural design or technical decisions** — design belongs in the solution design ([../03_architecture/01_solution_design_TEMPLATE.md](../03_architecture/01_solution_design_TEMPLATE.md)) and ADRs. The PRD specifies desired behavior, not implementation.
-- **Detailed test cases or verification steps** — test scenarios belong in the acceptance catalog ([05_acceptance_catalog_TEMPLATE.md](05_acceptance_catalog_TEMPLATE.md)) and test strategy ([../05_testing_acceptance/01_test_strategy_TEMPLATE.md](../05_testing_acceptance/01_test_strategy_TEMPLATE.md)).
-- **Roadmap items or strategy horizon** — product sequencing belongs in the roadmap ([../01_strategy/02_roadmap_TEMPLATE.md](../01_strategy/02_roadmap_TEMPLATE.md)). The PRD covers one release or increment, not the whole product journey.
-- **Stakeholder analysis or engagement plans** — stakeholder management belongs in the stakeholder register ([../00_governance/04_stakeholder_register_TEMPLATE.md](../00_governance/04_stakeholder_register_TEMPLATE.md)).
-
-## Frontmatter quick reference
-
-This template's typical frontmatter values. The full schema (with all enums and conditional rules) is at [docs/00_operating_model/04_frontmatter_schema.md](../00_operating_model/04_frontmatter_schema.md).
-
-| Field | Typical value here | Notes |
-|---|---|---|
-| `status` | `draft` → `active` → `superseded` | Use `superseded` when replaced; required `superseded_by:` link |
-| `record_class` | `canonical` | This template defines a canonical artifact |
-| `audience` | `[internal, manager]` | Add `client` only when client-export-safe |
-| `capability` | `product` | Fixed for this folder |
-| `phase` | `planning` | One of `initiation`, `planning`, `execution`, `monitoring`, `closure`, `n/a` |
-| `cadence` | `per-release` | One of `ad-hoc`, `weekly`, `monthly`, `per-stage`, `per-release`, `one-shot` |
-
-> When `capability: execution`, both `cadence` and `source_of_truth` are required by the validator.
 
 ## Problem
 
-State the user or business problem in one or two short paragraphs, then explain why it matters now. Focus on the gap between the current state and the desired outcome so downstream teams can test the right thing.
+Project teams often have access to documentation templates but still produce inconsistent or incomplete documentation before implementation. Missing context and unresolved assumptions lead to delays, avoidable rework, and lower confidence at release readiness gates.
 
-- Example prompt: what is failing today, for whom, and with what impact?
-- Example prompt: what business or user signal says this problem deserves investment now?
+The documentation development tool addresses this by guiding users through a structured documentation-first workflow, asking clarifying questions, recommending required documentation files based on scope, and reviewing outputs for quality and completeness.
 
 ## Users
 
-Describe the primary and secondary users, plus any internal stakeholders who shape requirements or approvals. Keep the list short and action-oriented so readers understand whose outcomes drive prioritization.
+Primary users:
 
-- Example bullets: primary user groups, key stakeholder teams, accessibility or compliance-sensitive audiences.
-- Example prompt: who receives value directly, and who is affected operationally?
+- Product managers and project leads preparing scope and implementation guidance.
+- Architects and technical leads defining constraints and solution boundaries.
+
+Secondary users:
+
+- Delivery leads and release managers validating readiness.
+- Engineers and QA teams consuming documentation during implementation.
+- Governance reviewers checking quality, traceability, and process completeness.
 
 ## Goals
 
-List the outcomes this release should achieve in observable terms. Goals should be measurable enough to inform acceptance and release decisions, not just aspirations.
-
-- Example bullets: reduce task time, increase completion rate, improve adoption, remove a manual step.
-- Example prompt: what changes in behavior or business performance should be visible after release?
+1. Enable end-to-end guided documentation development from initiation to implementation readiness.
+2. Ensure documentation completeness before implementation by collecting missing context via Q&A.
+3. Improve documentation quality with automated review feedback and suggestions.
+4. Adapt documentation sets to project scope so teams focus on essential files.
+5. Provide modular capabilities that scale across project types and complexity levels.
 
 ## Non-goals
 
-Record important boundaries so the project does not grow by assumption. Non-goals are especially useful when adjacent improvements are tempting but not funded or not ready.
-
-- Example bullets: no redesign of adjacent workflows, no migration of legacy data, no new admin console in this release.
-- Example prompt: what reasonable requests are explicitly out of scope for this iteration?
+- Replacing backlog management or full project scheduling tools.
+- Acting as a code generation platform for production software implementation.
+- Eliminating human review and approval in governance-critical decisions.
+- Template customization (Phase 2+: parameter substitution, frontmatter overrides, custom markers).
 
 ## User stories
 
-Capture the most important user stories in a lightweight format that explains actor, need, and expected outcome. Keep stories outcome-focused and avoid turning implementation details into story text.
-
 | ID | User story | Priority | Notes |
 | --- | --- | --- | --- |
-| US-001 | As a [persona], I want to [goal], so that [outcome]. | Must | Link to journey or requirement IDs. |
-| US-002 | As a [persona], I want to [goal], so that [outcome]. | Should | Note dependencies or assumptions. |
+| US-001 | As a project lead, I want guided documentation workflows so that I can move from idea to implementation-ready docs without missing critical context. | Must | Core product flow. |
+| US-002 | As a product manager, I want the tool to ask clarifying questions so that ambiguous scope and assumptions are resolved early. | Must | Supports completeness. |
+| US-003 | As a technical lead, I want project-scope-based document selection so that we only produce docs that are necessary for our project. | Must | Supports focus and efficiency. |
+| US-004 | As a reviewer, I want automated quality checks and suggestions so that documentation quality improves before approvals. | Must | Supports quality assurance goal. |
+| US-005 | As an operations stakeholder, I want the process to scale for different project sizes so that governance depth matches project risk and complexity. | Should | Supports adaptability. |
 
 ## Functional requirements
 
-List the required capabilities the product must provide. Keep each statement testable and atomic enough that it can map to acceptance scenarios and evidence later.
-
-| ID | Requirement | Priority | Acceptance reference |
-| --- | --- | --- | --- |
-| FR-001 | The system shall [behavior]. | Must | AC-001 |
-| FR-002 | The system shall [behavior]. | Should | AC-002 |
+| FR-001 | The system shall ingest template documentation standards from the template docs directory and expose them by capability. | Must | AC-001 |
+| FR-002 | The system shall run an interactive Q&A flow and capture answers required for documentation tailoring. See Q&A Specification section for flow details. | Must | AC-001 |
+| FR-003 | The system shall identify required, recommended, and optional documentation files based on project scope and risk profile. Project size is derived from Q&A answers using classification rules (see Solution Design, Project Size Classification section). | Must | AC-004 |
+| FR-004 | The system shall generate and/or adapt project documentation files using collected answers and template structure (see Solution Design, Generation Logic section). | Must | AC-002 |
+| FR-005 | The system shall review generated documentation against a defined quality baseline and provide prioritized improvement suggestions (see Quality Review Baseline section). | Must | AC-005 |
+| FR-006 | The system shall track documentation readiness state across core domains and report status (see Solution Design, Readiness Tracking Mechanism section). | Should | AC-006 |
 
 ## Non-functional requirements
 
-Capture quality, compliance, reliability, security, or usability constraints that shape the solution. Express each requirement as a measurable target, threshold, or rule wherever possible.
-
 | ID | Requirement | Measure or constraint | Acceptance reference |
 | --- | --- | --- | --- |
-| NFR-001 | [Performance, reliability, security, or usability expectation] | [Threshold or rule] | AC-NFR-001 |
-| NFR-002 | [Constraint] | [Threshold or rule] | AC-NFR-002 |
+| NFR-001 | Usability | New users can complete a guided documentation session without external support after onboarding. | AC-NFR-001 |
+| NFR-002 | Performance | Interactive responses should return within 2 seconds for normal operations on local project docs. | AC-NFR-002 |
+| NFR-003 | Scalability | Must support projects across complexity ranges (small, medium, large) and all project types in scope. | AC-NFR-003 |
+| NFR-004 | Security | Sensitive input data must be protected from unauthorized access in storage and processing paths. | AC-NFR-004 |
+| NFR-005 | Maintainability | Modules must be independently updatable with minimal coupling and clear interfaces. | AC-NFR-005 |
+| NFR-006 | Compatibility | Tooling must operate across common developer environments and be accessible from standard project workflows. | AC-NFR-006 |
 
 ## Out of scope
 
-Repeat the most important exclusions in a dedicated delivery-friendly form. Use this section to prevent downstream teams from assuming related work is implicitly included.
-
-- Example bullets: excluded channels, unsupported user segments, deferred integrations, postponed reporting needs.
-- Example prompt: what will stakeholders be tempted to infer that this release does not promise?
+- Phase 1: Template customization and parameter binding.
+- Replacing implementation project management and scheduling platforms.
+- Automated approval decisions without human reviewer accountability.
 
 ## Acceptance criteria
 
-Summarize the conditions that must be true for the release to be considered acceptable. Keep the detailed scenario list in the acceptance catalog, but include the main success conditions here so executives and delivery leads can scan them quickly.
+- **AC-001:** The tool guides users through all base questions and triggered follow-up questions without requiring clarification outside the tool UI. Generated doc set is complete for the scoped project size.
+- **AC-002:** All generated documentation files pass all six quality baseline checks (completeness, structure, cross-references, frontmatter validity, content substance, consistency) with zero violations.
+- **AC-003:** When base Q&A responses contain ambiguous or incomplete answers (identified via validation rules), the tool triggers targeted follow-up questions. User marks each ambiguity as resolved before proceeding to generation.
+- **AC-004:** File necessity assessment correctly classifies required/recommended/optional docs for test projects of small, medium, and large sizes. Validation: 3 test projects (1 per size) are assessed by the tool and verified manually against expected classifications.
+- **AC-005:** Review engine output lists violations with specific guidance: (a) violated baseline rule name, (b) specific document section, (c) example of corrected text, (d) link to quality baseline definition.
+- **AC-006:** Documentation readiness status can be queried and reported by domain (scope, design, build, test, release, ops). Status reflects underlying doc file state and quality review results.
 
-- Example bullets: critical journeys complete successfully, core NFR thresholds met, no unresolved severity-1 defects, named approvers sign off.
-- Example prompt: what minimum bar separates “implemented” from “acceptable for release”?
+## Q&A Specification
+
+**Base Questions (all projects):**
+1. Project name and type (software, data platform, service, other).
+2. Project scope: primary users, core goals, key constraints.
+3. Team size and structure.
+4. Risk profile: external users affected? sensitive data involved? governance requirements?
+5. Integration dependencies: will this integrate with other systems?
+
+**Follow-up Triggers:**
+- If external users stated: Ask about customer support model, SLA requirements, data privacy constraints.
+- If sensitive data stated: Ask about compliance frameworks (GDPR, HIPAA, SOC2, etc.), encryption requirements, audit logging.
+- If governance requirements stated: Ask about approval authorities, sign-off gates, escalation path.
+- If team size > 10: Ask about delivery cadence, release strategy, communication plan.
+
+**Exit Condition:**
+Q&A flow is complete when all base questions are answered and all triggered follow-up questions are resolved to a level that permits project scope determination (no "TBD" responses remaining).
+
+## Quality Review Baseline
+
+Phase 1 review engine checks:
+
+- **Completeness:** All required sections populated with non-placeholder content.
+- **Structure:** Headings, lists, tables use correct markdown syntax.
+- **Cross-references:** Internal links to related docs resolve and use correct relative paths.
+- **Frontmatter validity:** YAML frontmatter follows schema (status, capability, phase, cadence values valid).
+- **Content quality:** Core fields (goals, scope, requirements) have substantive content (> 20 characters), not generic examples.
+- **Consistency:** Terminology, formatting, and tone align within document and across related docs.
 
 ## Release plan
 
-Describe the intended release shape, dependencies, sequencing assumptions, and rollout guardrails at a summary level. Link out to delivery and testing artifacts for the detailed mechanics.
+Phase 1 - MVP delivery:
 
-- Example bullets: target release window, rollout stages, dependency checkpoints, rollback assumptions.
-- Example prompt: what has to be true for this PRD scope to ship safely?
+- Build Q&A intake engine (base + follow-up clarification flow).
+- Implement file necessity assessment (template discovery and scope-based classification).
+- Build generation engine (template copy, variable substitution, structure adaptation).
+- Implement full quality review baseline checks (see above).
+- Conduct testing and refinement with beta users.
+- Launch to production.
+
+Phase 2+ roadmap (deferred): template customization, configurable review rules, API-first workflows, service decomposition.
 
 ## Related documents
 
-- [02_requirements_catalog_TEMPLATE.md](02_requirements_catalog_TEMPLATE.md) — expands the requirement inventory with source, owner, and status tracking.
-- [05_acceptance_catalog_TEMPLATE.md](05_acceptance_catalog_TEMPLATE.md) — holds the detailed Given/When/Then scenarios and UAT pass criteria linked from this PRD.
-- [../05_testing_acceptance/01_test_strategy_TEMPLATE.md](../05_testing_acceptance/01_test_strategy_TEMPLATE.md) — explains how the PRD and acceptance criteria will be verified.
-- [../00_governance/12_requirements_traceability_matrix_TEMPLATE.md](../00_governance/12_requirements_traceability_matrix_TEMPLATE.md) — connects requirements to design, test, and release evidence.
+- [../00_governance/00_project_brief.md](../00_governance/00_project_brief.md)
+- [../01_strategy/01_product_vision.md](../01_strategy/01_product_vision.md)
+- [../03_architecture/01_solution_design.md](../03_architecture/01_solution_design.md)
+- [../07_delivery/06_readiness_tracker.md](../07_delivery/06_readiness_tracker.md)

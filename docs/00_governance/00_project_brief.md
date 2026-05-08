@@ -1,103 +1,108 @@
 ---
-title: Project Brief Template
-status: draft
+title: Documentation Development Tool - Project Brief
+status: active
 record_class: canonical
 audience: [internal, manager, client]
 owner: project-manager
 capability: governance
 phase: initiation
 cadence: one-shot
-last_reviewed: 2026-05-07
+last_reviewed: 2026-05-08
 ---
-
-# Project Brief Template
-
-> **Purpose**: capture the minimum project framing needed to explain the initiative, its scope, and its approval path.
-> **Audience**: sponsors, delivery leads, and client stakeholders who need a quick shared understanding of the work.
-> **When to update**: update when the project is initiated or when approved scope, goals, or governance materially change.
-
-## How to use this template
-
-Copy this template when a new initiative needs a concise mandate before deeper planning documents exist. Keep it short, replace placeholders with approved facts, and link out to detailed artifacts rather than repeating them.
-
-- Mandatory: summary, goals, scope, stakeholders, and governance fields.
-- Optional: deeper risk detail if a separate RAID register already exists.
-- Remove any example bullets and unused placeholders before publishing.
-
-## What not to include
-
-- **Detailed business case analysis or cost modelling** — this belongs in the business case ([01_business_case_TEMPLATE.md](01_business_case_TEMPLATE.md)). The brief states the problem and approval ask; the business case justifies the investment.
-- **Full delivery milestones or stage plans** — milestone detail belongs in the delivery plan ([../07_delivery/01_delivery_plan_TEMPLATE.md](../07_delivery/01_delivery_plan_TEMPLATE.md)). The brief summarises the intent, not the execution schedule.
-- **Technical architecture or solution design** — design decisions belong in the solution design ([../03_architecture/01_solution_design_TEMPLATE.md](../03_architecture/01_solution_design_TEMPLATE.md)). The brief explains what is being built, not how.
-- **Detailed RAID entries** — risks and dependencies should be summarised here and tracked in the RAID register ([../00_governance/06_raid_register_TEMPLATE.md](06_raid_register_TEMPLATE.md)) once the project is active.
-- **Stakeholder sentiment or engagement actions** — stakeholder analysis belongs in the stakeholder register ([04_stakeholder_register_TEMPLATE.md](04_stakeholder_register_TEMPLATE.md)).
-
-## Frontmatter quick reference
-
-This template's typical frontmatter values. The full schema (with all enums and conditional rules) is at [docs/00_operating_model/04_frontmatter_schema.md](../00_operating_model/04_frontmatter_schema.md).
-
-| Field | Typical value here | Notes |
-|---|---|---|
-| `status` | `draft` → `active` → `superseded` | Use `superseded` when replaced; required `superseded_by:` link |
-| `record_class` | `canonical` | This template defines a canonical artifact |
-| `audience` | `[internal, manager, client]` | Add `client` only when client-export-safe |
-| `capability` | `governance` | Fixed for this folder |
-| `phase` | `initiation` | One of `initiation`, `planning`, `execution`, `monitoring`, `closure`, `n/a` |
-| `cadence` | `one-shot` | One of `ad-hoc`, `weekly`, `monthly`, `per-stage`, `per-release`, `one-shot` |
-
-> When `capability: execution`, both `cadence` and `source_of_truth` are required by the validator.
 
 ## Summary
 
-Use this section to state what the project is, why it exists, and who is accountable for it. A reader should understand the initiative in under a minute without opening any other file.
+This project delivers a documentation development tool that helps teams create complete, high-quality implementation documentation before coding begins. The tool uses the template system in `/home/hexaper/template/docs` as a standards baseline and provides guided authoring, review, and scope-aware file selection.
 
-- Example: project name, sponsor, delivery lead, and target outcome.
-- Example: problem statement, target users, and planned start or decision date.
+The initiative exists to reduce implementation surprises caused by incomplete or inconsistent documentation. It focuses on introducing standards, gathering missing context through interactive questions, and producing tailored project documentation sets.
 
 ## Goals and success measures
 
-Record the outcomes the project is expected to achieve and how success will be judged. Keep measures observable so the brief can be used later during stage gates and benefits reviews.
-
-- Example: reduce onboarding time by 30% within two releases.
-- Example: launch a compliant self-service workflow adopted by 80% of the target group.
+1. Complete documentation before implementation handoff.
+  Measure: 100% of required documentation files for the scoped project are created and minimally populated.
+2. Improve documentation quality through automated review.
+  Measure: all generated docs pass baseline quality checks and receive actionable improvement suggestions.
+3. Streamline implementation readiness.
+  Measure: fewer blocked implementation starts caused by missing requirements, constraints, or acceptance criteria.
+4. Enforce a methodical documentation-first workflow.
+  Measure: documentation readiness gate (all six domains Green: scope, design, build, test, release, ops) is required before implementation planning is marked complete.
 
 ## Scope (in/out)
 
-Define what the project will deliver and what it explicitly will not address. Clear in-scope and out-of-scope lists help prevent the brief from becoming a vague aspiration document.
+In scope:
 
-- In scope example: deliver a new customer intake portal and supporting admin workflow.
-- Out of scope example: replace the legacy billing engine in this phase.
+- Interactive Q&A to collect project context and close information gaps across all project sizes.
+- Scope-based file necessity assessment using template capabilities.
+- Guided generation and adaptation of docs for governance, strategy, product, architecture, and delivery.
+- Full quality review (completeness, structure, consistency, content substance, cross-references, frontmatter validity).
+- Documentation readiness tracking across core delivery domains.
+
+Out of scope (Phase 1):
+
+- Template customization (parameter binding, YAML overrides; deferred to Phase 2).
+- Replacing implementation planning and delivery tooling.
+- Full project management platform features (resource planning, budgeting systems, etc.).
+- Auto-generating production-grade software implementation from documentation.
 
 ## Stakeholders
 
-List the primary roles that fund, decide, build, operate, and are affected by the initiative. Keep the list role-based so it remains useful even if named individuals change.
-
-- Example: sponsor, product owner, technical owner, delivery lead, operations lead.
-- Example: client approver, compliance reviewer, service desk representative.
+- Sponsor: documentation and delivery governance sponsor.
+- Product owner: owner of user experience and functional scope for the tool.
+- Technical owner: architecture and maintainability accountability.
+- Delivery lead: timeline, release orchestration, and readiness tracking.
+- End users: project leads, product managers, architects, and engineers producing implementation docs.
 
 ## Constraints and assumptions
 
-Capture the conditions the project must work within and the assumptions that planning currently depends on. This helps later readers understand which boundaries were fixed versus estimated.
+Constraints:
 
-- Constraint example: fixed budget ceiling, mandatory release window, or regulatory deadline.
-- Assumption example: dependent API will be available by the start of build.
+- Reasonable implementation timeline and incremental delivery approach.
+- Modular architecture requirement to keep complexity manageable.
+- High usability requirement for users with varying documentation maturity.
+- Broad adaptability across project types and scales.
+
+Assumptions:
+
+- Template docs in `/home/hexaper/template/docs` remain available and are stable for Phase 1 use.
+- Teams are willing to adopt a documentation-first readiness gate.
+- A baseline quality standard checklist (completeness, structure, consistency, content substance) can be codified and applied automatically.
+- One unified Q&A flow (not multiple size-specific flows) can determine project scale and complexity via answers, enabling scope recommendations across all sizes.
 
 ## Risks and dependencies
 
-Summarize the highest-impact risks and the external or upstream items that could affect delivery. Keep this section brief and move ongoing detail into the RAID register once the project is active.
+Top risks:
 
-- Risk example: unresolved data-quality issues could delay migration.
-- Dependency example: security review, vendor contract, or upstream platform upgrade.
+1. Incomplete user-provided context leads to weak output quality.
+  Mitigation: interactive follow-up questions and required-field checkpoints.
+2. User resistance to process change.
+  Mitigation: clear onboarding, practical guidance, and lightweight workflow.
+3. Tool complexity grows too quickly.
+  Mitigation: modular design, progressive disclosure, and phased feature rollout.
+4. Review engine provides low-value feedback.
+  Mitigation: rule quality tuning and validation against accepted documentation examples.
+5. Scalability or adaptability gaps.
+  Mitigation: scope profiling and project-size-aware recommendations.
+
+Dependencies:
+
+- Access to and consistency of template documentation standards.
+- Stakeholder availability for clarifying requirements and acceptance criteria.
+- Ongoing validation with real projects during beta.
 
 ## Governance and approval
 
-State who approves the work, where key decisions are made, and how escalation works. Readers should be able to see the approval path without opening the full board or communication plans.
+- Product owner approves scope and functional behavior.
+- Architecture owner approves solution design and quality constraints.
+- Release manager approves readiness gates for beta and launch.
+- Steering decisions for major scope changes are made by sponsor + delivery lead + product owner.
 
-- Example: steering group approves stage progression and major scope changes.
-- Example: escalation path from project manager to sponsor to board chair.
+Escalation path:
+
+- Delivery lead -> product owner -> sponsor.
 
 ## Related documents
 
-- [01_business_case_TEMPLATE.md](01_business_case_TEMPLATE.md) — expands the value case and recommendation behind the initiative.
-- [02_project_initiation_document_TEMPLATE.md](02_project_initiation_document_TEMPLATE.md) — turns the brief into a fuller management baseline.
-- [../07_delivery/01_delivery_plan_TEMPLATE.md](../07_delivery/01_delivery_plan_TEMPLATE.md) — translates the approved brief into execution milestones and controls.
+- [../01_strategy/01_product_vision.md](../01_strategy/01_product_vision.md)
+- [../02_product/01_prd.md](../02_product/01_prd.md)
+- [../03_architecture/01_solution_design.md](../03_architecture/01_solution_design.md)
+- [../07_delivery/06_readiness_tracker.md](../07_delivery/06_readiness_tracker.md)
