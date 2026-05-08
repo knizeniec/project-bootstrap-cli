@@ -67,8 +67,8 @@ Delivery to support handover requires:
 
 Handover sign-off checklist:
 
-- Contact list for release, operations, and engineering roles is current.
-- Support escalation path has been rehearsed once.
+- Contact list for release, operations, and engineering roles is current ([../evidence/rc1/support-contact-roster.md](../evidence/rc1/support-contact-roster.md)).
+- Support escalation path has been rehearsed once ([../evidence/rc1/incident-drill-2026-05-08.md](../evidence/rc1/incident-drill-2026-05-08.md)).
 - Incident response template is linked from support runbook entry.
 
 ## Escalation path
@@ -94,5 +94,6 @@ Escalation timing:
 ## Related documents
 
 - [06_incident_response.md](06_incident_response.md)
+- [10_runbook_index.md](10_runbook_index.md)
 - [../07_delivery/07_release_plan.md](../07_delivery/07_release_plan.md)
 - [../07_delivery/06_readiness_tracker.md](../07_delivery/06_readiness_tracker.md)

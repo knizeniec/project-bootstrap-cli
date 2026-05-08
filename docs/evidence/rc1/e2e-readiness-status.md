@@ -17,11 +17,11 @@ RC-1-E2E-READ
 
 ## Date
 
-2026-05-13 (planned)
+2026-05-08
 
 ## Branch/Revision
 
-main @ 95eda1f (planning baseline)
+main @ c9a1a6c
 
 ## Executor
 
@@ -53,11 +53,11 @@ docs/evidence/rc1/artifacts/RC1-E2E-READ-${RUN_DATE}.md
 
 ## Result
 
-Planned
+Pass
 
 ## Notes
 
-Planned check confirms readiness summary output and expected Red/Amber/Green mapping behavior.
+Executed on 2026-05-08. Readiness snapshot and RC1 run ID coverage were captured in the linked artifact.
 
 ## Linked issue IDs
 

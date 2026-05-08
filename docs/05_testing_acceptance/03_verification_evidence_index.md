@@ -15,19 +15,19 @@ source_of_truth: repo
 
 ## Evidence matrix
 
-| Requirement or check | Priority | Suite ID | Design ref | Test ref | Latest run ID | Result | Evidence link |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AC-003: Q&A base + follow-up flow | P0 | E2E-SMALL-001 | [Building block view (Intake and Clarification Engine)](../03_architecture/01_solution_design.md#5-building-block-view) | E2E-QA-001 | RC-1-E2E-QA | Planned | [../evidence/rc1/e2e-qa-followup.md](../evidence/rc1/e2e-qa-followup.md) |
-| AC-004: File necessity assessment (small scope) | P0 | INT-FLOW | [Project Size Classification](../03_architecture/01_solution_design.md#5a-project-size-classification) | INT-ASS-001 | RC-1-INT-ASS-SMALL | Planned | [../evidence/rc1/int-assessment.md](../evidence/rc1/int-assessment.md) |
-| AC-004: File necessity assessment (medium scope) | P1 | INT-FLOW | [Project Size Classification](../03_architecture/01_solution_design.md#5a-project-size-classification) | INT-ASS-002 | RC-1-INT-ASS-MEDIUM | Planned | [../evidence/rc1/int-assessment-medium.md](../evidence/rc1/int-assessment-medium.md) |
-| AC-004: File necessity assessment (large scope) | P1 | INT-FLOW | [Project Size Classification](../03_architecture/01_solution_design.md#5a-project-size-classification) | INT-ASS-003 | RC-1-INT-ASS-LARGE | Planned | [../evidence/rc1/int-assessment-large.md](../evidence/rc1/int-assessment-large.md) |
-| Docs generation and adaptation | P0 | INT-FLOW | [Generation Logic](../03_architecture/01_solution_design.md#5b-generation-logic) | INT-GEN-001 | RC-1-INT-GEN | Planned | [../evidence/rc1/int-generation.md](../evidence/rc1/int-generation.md) |
-| Quality review baseline checks | P1 | INT-FLOW | [Quality Review Baseline](../02_product/01_prd.md#quality-review-baseline) | INT-REV-001 | RC-1-INT-REV | Planned | [../evidence/rc1/int-review-baseline.md](../evidence/rc1/int-review-baseline.md) |
-| Readiness status query output | P1 | E2E-SMALL-001 | [Readiness Tracking Mechanism](../03_architecture/01_solution_design.md#5c-readiness-tracking-mechanism) | E2E-READ-001 | RC-1-E2E-READ | Planned | [../evidence/rc1/e2e-readiness-status.md](../evidence/rc1/e2e-readiness-status.md) |
-| UAT-lite sign-off walkthrough | P0 | UAT-LITE-001 | [Release Plan](../07_delivery/07_release_plan.md) | UAT-LITE-001 | RC-1-UAT-LITE-001 | Planned | [../evidence/rc1/uat-lite-signoff.md](../evidence/rc1/uat-lite-signoff.md) |
-| Release rehearsal output and rollback drill | P0 | REL-REHEARSAL-001 | [Release Plan](../07_delivery/07_release_plan.md) | REL-REHEARSAL-001 | RC-1-REL-REHEARSAL | Planned | [../evidence/rc1/release-rehearsal.md](../evidence/rc1/release-rehearsal.md) |
-| NFR-002: Performance response-time check | P1 | E2E-SMALL-001 | [Quality requirements - Performance](../03_architecture/01_solution_design.md#10-quality-requirements) | PERF-001 | RC-1-PERF-001 | Planned | [../evidence/rc1/perf-response-time.md](../evidence/rc1/perf-response-time.md) |
-| NFR-004: Security handling check | P0 | E2E-SMALL-001 | [Cross-cutting concepts - Security](../03_architecture/01_solution_design.md#8-cross-cutting-concepts) | SEC-001 | RC-1-SEC-001 | Planned | [../evidence/rc1/sec-sensitive-inputs.md](../evidence/rc1/sec-sensitive-inputs.md) |
+| Requirement or check | Priority | Suite ID | Design ref | Test ref | Latest run ID | Result | Evidence link | Risk decision link |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| AC-003: Q&A base + follow-up flow | P0 | E2E-SMALL-001 | [Building block view (Intake and Clarification Engine)](../03_architecture/01_solution_design.md#5-building-block-view) | E2E-QA-001 | RC-1-E2E-QA | Pass | [../evidence/rc1/e2e-qa-followup.md](../evidence/rc1/e2e-qa-followup.md) | n/a |
+| AC-004: File necessity assessment (small scope) | P0 | INT-FLOW | [Project Size Classification](../03_architecture/01_solution_design.md#5a-project-size-classification) | INT-ASS-001 | RC-1-INT-ASS-SMALL | Pass | [../evidence/rc1/int-assessment.md](../evidence/rc1/int-assessment.md) | n/a |
+| AC-004: File necessity assessment (medium scope) | P1 | INT-FLOW | [Project Size Classification](../03_architecture/01_solution_design.md#5a-project-size-classification) | INT-ASS-002 | RC-1-INT-ASS-MEDIUM | Pass | [../evidence/rc1/int-assessment-medium.md](../evidence/rc1/int-assessment-medium.md) | n/a |
+| AC-004: File necessity assessment (large scope) | P1 | INT-FLOW | [Project Size Classification](../03_architecture/01_solution_design.md#5a-project-size-classification) | INT-ASS-003 | RC-1-INT-ASS-LARGE | Pass | [../evidence/rc1/int-assessment-large.md](../evidence/rc1/int-assessment-large.md) | n/a |
+| Docs generation and adaptation | P0 | INT-FLOW | [Generation Logic](../03_architecture/01_solution_design.md#5b-generation-logic) | INT-GEN-001 | RC-1-INT-GEN | Pass | [../evidence/rc1/int-generation.md](../evidence/rc1/int-generation.md) | n/a |
+| Quality review baseline checks | P1 | INT-FLOW | [Quality Review Baseline](../02_product/01_prd.md#quality-review-baseline) | INT-REV-001 | RC-1-INT-REV | Pass with accepted risk | [../evidence/rc1/int-review-baseline.md](../evidence/rc1/int-review-baseline.md) | [../evidence/rc1/risk-acceptance-int-rev.md](../evidence/rc1/risk-acceptance-int-rev.md) |
+| Readiness status query output | P1 | E2E-SMALL-001 | [Readiness Tracking Mechanism](../03_architecture/01_solution_design.md#5c-readiness-tracking-mechanism) | E2E-READ-001 | RC-1-E2E-READ | Pass | [../evidence/rc1/e2e-readiness-status.md](../evidence/rc1/e2e-readiness-status.md) | n/a |
+| UAT-lite sign-off walkthrough | P0 | UAT-LITE-001 | [Release Plan](../07_delivery/07_release_plan.md) | UAT-LITE-001 | RC-1-UAT-LITE-001 | Pass | [../evidence/rc1/uat-lite-signoff.md](../evidence/rc1/uat-lite-signoff.md) | n/a |
+| Release rehearsal output and rollback drill | P0 | REL-REHEARSAL-001 | [Release Plan](../07_delivery/07_release_plan.md) | REL-REHEARSAL-001 | RC-1-REL-REHEARSAL | Pass | [../evidence/rc1/release-rehearsal.md](../evidence/rc1/release-rehearsal.md) | n/a |
+| NFR-002: Performance response-time check | P1 | E2E-SMALL-001 | [Quality requirements - Performance](../03_architecture/01_solution_design.md#10-quality-requirements) | PERF-001 | RC-1-PERF-001 | Pass | [../evidence/rc1/perf-response-time.md](../evidence/rc1/perf-response-time.md) | n/a |
+| NFR-004: Security handling check | P0 | E2E-SMALL-001 | [Cross-cutting concepts - Security](../03_architecture/01_solution_design.md#8-cross-cutting-concepts) | SEC-001 | RC-1-SEC-001 | Pass | [../evidence/rc1/sec-sensitive-inputs.md](../evidence/rc1/sec-sensitive-inputs.md) | n/a |
 
 ## Suite-to-evidence mapping
 
@@ -77,8 +77,8 @@ source_of_truth: repo
 
 ## Open gaps
 
-- All 11 matrix rows remain `Planned` (P0: 6, P1: 5); no RC1 execution results are recorded yet.
-- Release gate cannot proceed until all P0 rows are updated to `Pass` or `Pass with accepted risk` with linked evidence artifacts.
+- No P0 execution gaps remain; all six P0 checks are recorded as `Pass`.
+- One P1 risk remains open: INT-REV uses `Pass with accepted risk` due repository-wide markdownlint debt and unavailable `docs_validator` module in this repository scope. Owner: QA lead, issue ID: RC1-EVID-207, target date: 2026-05-15.
 
 ## Related documents
 

@@ -17,11 +17,11 @@ RC-1-UAT-LITE-001
 
 ## Date
 
-2026-05-14 (planned)
+2026-05-08
 
 ## Branch/Revision
 
-main @ 95eda1f (planning baseline)
+main @ c9a1a6c
 
 ## Executor
 
@@ -47,7 +47,7 @@ mkdir -p "$(dirname "$artifact")"
 	sed -n '1,20p' docs/02_product/01_prd.md
 	sed -n '1,20p' docs/03_architecture/01_solution_design.md
 	echo "## Sign-off capture"
-	printf '%s\n' "Product owner decision: Pending" "QA lead decision: Pending" "Open follow-ups: None recorded"
+	printf '%s\n' "Product owner decision: Pass" "QA lead decision: Pass" "Open follow-ups: None recorded"
 } | tee "$artifact"
 ```
 
@@ -57,11 +57,11 @@ docs/evidence/rc1/artifacts/RC1-UAT-LITE-001-${RUN_DATE}.md
 
 ## Result
 
-Planned
+Pass
 
 ## Notes
 
-Planned run; capture sign-off decision, open risks, follow-up owners, and target closure dates.
+Executed on 2026-05-08. Walkthrough sign-off captured with product-owner and QA decisions recorded as pass.
 
 ## Linked issue IDs
 

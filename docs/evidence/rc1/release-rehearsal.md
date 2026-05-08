@@ -17,11 +17,11 @@ RC-1-REL-REHEARSAL
 
 ## Date
 
-2026-05-15 (planned)
+2026-05-08
 
 ## Branch/Revision
 
-main @ 95eda1f (planning baseline)
+main @ c9a1a6c
 
 ## Executor
 
@@ -61,11 +61,11 @@ docs/evidence/rc1/artifacts/RC1-REL-REHEARSAL-${RUN_DATE}.md
 
 ## Result
 
-Planned
+Pass
 
 ## Notes
 
-Planned run; record timeline, gate outcomes, rollback decision checkpoint, and follow-up actions.
+Executed on 2026-05-08. Rehearsal package and rollback parity check outputs were captured in the linked artifact.
 
 ## Linked issue IDs
 

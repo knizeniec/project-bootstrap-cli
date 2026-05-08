@@ -54,6 +54,6 @@ These are high-value starting points we can populate quickly through structured 
 
 ## Next step
 
-Run initial verification and release rehearsal, then update evidence links and domain statuses in `07_delivery/06_readiness_tracker.md`.
+Close the final governance actions for RC1: engineering-lead Build signoff in [07_delivery/02_implementation_plan.md](07_delivery/02_implementation_plan.md), maintain runbook/drill cadence, and keep go/no-go decision records updated in [evidence/rc1/](evidence/rc1/).
 
 <!-- markdownlint-enable MD013 -->

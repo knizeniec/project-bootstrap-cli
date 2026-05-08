@@ -17,11 +17,11 @@ RC-1-SEC-001
 
 ## Date
 
-2026-05-13 (planned)
+2026-05-08
 
 ## Branch/Revision
 
-main @ 95eda1f (planning baseline)
+main @ c9a1a6c
 
 ## Executor
 
@@ -59,11 +59,11 @@ docs/evidence/rc1/artifacts/RC1-SEC-001-${RUN_DATE}.md
 
 ## Result
 
-Planned
+Pass
 
 ## Notes
 
-Planned security check for NFR-004; record any unsafe echoes and mitigation actions.
+Executed on 2026-05-08. Redaction and artifact token scan completed with no unredacted sample token matches.
 
 ## Linked issue IDs
 

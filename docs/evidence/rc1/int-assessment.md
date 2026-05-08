@@ -17,11 +17,11 @@ RC-1-INT-ASS-SMALL
 
 ## Date
 
-2026-05-12 (planned)
+2026-05-08
 
 ## Branch/Revision
 
-main @ 95eda1f (planning baseline)
+main @ c9a1a6c
 
 ## Executor
 
@@ -60,11 +60,11 @@ docs/evidence/rc1/artifacts/RC1-INT-ASS-SMALL-${RUN_DATE}.md
 
 ## Result
 
-Planned
+Pass
 
 ## Notes
 
-Planned validation for small project classification and required document generation set.
+Executed on 2026-05-08. Small-scope classification evidence and required core-doc presence were verified.
 
 ## Linked issue IDs
 

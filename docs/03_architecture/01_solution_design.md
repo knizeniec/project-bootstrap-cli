@@ -42,6 +42,14 @@ External actors and systems:
 - Template source: `/home/hexaper/template/docs`.
 - Repository docs target: local project docs folders.
 
+Template source precedence for portability:
+
+- CLI argument (highest priority)
+- `DOCS_TEMPLATE_SOURCE` environment variable
+- Repository default path: `context/docs`
+
+If no valid source is found, generation must fail fast and return path-resolution guidance.
+
 Out of scope:
 
 - Full project scheduling and resource management tooling.

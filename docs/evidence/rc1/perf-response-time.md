@@ -17,11 +17,11 @@ RC-1-PERF-001
 
 ## Date
 
-2026-05-13 (planned)
+2026-05-08
 
 ## Branch/Revision
 
-main @ 95eda1f (planning baseline)
+main @ c9a1a6c
 
 ## Executor
 
@@ -55,11 +55,11 @@ docs/evidence/rc1/artifacts/RC1-PERF-001-${RUN_DATE}.md
 
 ## Result
 
-Planned
+Pass
 
 ## Notes
 
-Planned benchmark pass for NFR-002 with timing table and threshold comparison.
+Executed on 2026-05-08. Timing result and threshold comparison were captured; check remained within threshold.
 
 ## Linked issue IDs
 

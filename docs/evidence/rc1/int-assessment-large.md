@@ -17,11 +17,11 @@ RC-1-INT-ASS-LARGE
 
 ## Date
 
-2026-05-12 (planned)
+2026-05-08
 
 ## Branch/Revision
 
-main @ 95eda1f (planning baseline)
+main @ c9a1a6c
 
 ## Executor
 
@@ -60,11 +60,11 @@ docs/evidence/rc1/artifacts/RC1-INT-ASS-LARGE-${RUN_DATE}.md
 
 ## Result
 
-Planned
+Pass
 
 ## Notes
 
-Planned validation for large project classification and full mandatory record coverage.
+Executed on 2026-05-08. Large-scope classification evidence and mandatory record coverage were verified.
 
 ## Linked issue IDs
 

@@ -17,11 +17,11 @@ RC-1-INT-GEN
 
 ## Date
 
-2026-05-12 (planned)
+2026-05-08
 
 ## Branch/Revision
 
-main @ 95eda1f (planning baseline)
+main @ c9a1a6c
 
 ## Executor
 
@@ -56,11 +56,11 @@ docs/evidence/rc1/artifacts/RC1-INT-GEN-${RUN_DATE}.md
 
 ## Result
 
-Planned
+Pass
 
 ## Notes
 
-Planned generation run to verify required sections are emitted and naming conventions are preserved.
+Executed on 2026-05-08. Generated markdown set and file-count snapshot were captured in artifact output.
 
 ## Linked issue IDs
 

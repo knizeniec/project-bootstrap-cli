@@ -17,11 +17,11 @@ RC-1-E2E-QA
 
 ## Date
 
-2026-05-13 (planned)
+2026-05-08
 
 ## Branch/Revision
 
-main @ 95eda1f (planning baseline)
+main @ c9a1a6c
 
 ## Executor
 
@@ -43,7 +43,7 @@ mkdir -p "$(dirname "$artifact")"
 	echo "## Prompt 1"; echo "Summarize RC1 verification steps."
 	echo "## Follow-up 1"; echo "Add exact evidence-index and release-readiness checkpoints."
 	echo "## Referenced checkpoints"
-	rg -n "03_verification_evidence_index|06_readiness_tracker|07_release_plan" docs/05_testing_acceptance docs/07_delivery
+	grep -RInE "03_verification_evidence_index|06_readiness_tracker|07_release_plan" docs/05_testing_acceptance docs/07_delivery
 } | tee "$artifact"
 ```
 
@@ -53,11 +53,11 @@ docs/evidence/rc1/artifacts/RC1-E2E-QA-${RUN_DATE}.md
 
 ## Result
 
-Planned
+Pass
 
 ## Notes
 
-Scheduled for RC1 validation window; capture prompt transcript and follow-up handling evidence.
+Executed on 2026-05-08. Prompt and follow-up transcript with referenced readiness checkpoints captured in artifact output.
 
 ## Linked issue IDs
 

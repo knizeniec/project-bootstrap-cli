@@ -17,11 +17,11 @@ RC-1-INT-REV
 
 ## Date
 
-2026-05-12 (planned)
+2026-05-08
 
 ## Branch/Revision
 
-main @ 95eda1f (planning baseline)
+main @ c9a1a6c
 
 ## Executor
 
@@ -43,9 +43,13 @@ mkdir -p "$(dirname "$artifact")"
 	echo "## markdownlint output"
 	git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2 || true
 	echo "## docs validator output"
-	PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1 || true
+	if [ -d tools/docs_validator/src ]; then
+		PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1 || true
+	else
+		echo "docs_validator unavailable in this repository; using markdownlint and heading checks for this run."
+	fi
 	echo "## Evidence docs headings check"
-	rg -n "^## (Run ID|Result|Notes|Linked issue IDs)$" docs/evidence/rc1/*.md
+	grep -RInE "^## (Run ID|Result|Notes|Linked issue IDs)$" docs/evidence/rc1/*.md
 } | tee "$artifact"
 ```
 
@@ -57,11 +61,13 @@ docs/evidence/rc1/artifacts/RC1-INT-REV-${RUN_DATE}.md
 
 ## Result
 
-Planned
+Pass with accepted risk
 
 ## Notes
 
-Planned baseline review to confirm style, completeness, and evidence-link conventions before RC1 gate.
+Executed on 2026-05-08. Markdownlint reported repository-wide markdown debt outside the RC1 evidence scope; docs validator module is not present in this repository. Accepted risk for this P1 check with follow-up due 2026-05-15.
+
+Risk decision link: [risk-acceptance-int-rev.md](risk-acceptance-int-rev.md)
 
 ## Linked issue IDs
 

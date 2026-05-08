@@ -30,6 +30,18 @@ Deferred:
 
 Release candidate label: `RC-1`
 
+## RC-1 scope boundaries
+
+Committed release scope:
+
+- Small-scope project flow (Q&A, assessment, generation, review, readiness reporting).
+- RC1 release rehearsal and UAT-lite sign-off.
+
+Additional validation scope (non-blocking exploratory coverage):
+
+- Medium and large classification assessment evidence.
+- Extended performance and security checks beyond minimum release gates.
+
 ## Environments
 
 - Dev: developer verification and iteration.
@@ -68,6 +80,15 @@ Gate interpretation notes:
 - Go/no-go cannot proceed while any P0 evidence row is `Fail`.
 - UAT-LITE-001 and REL-REHEARSAL-001 must be linked in the evidence index before final go/no-go.
 - Readiness notes must include the latest update date and remaining blocker summary.
+- Build Amber exception policy: release may proceed only if Engineering lead signs Amber exception with explicit risk statement in [go-no-go decision record](../evidence/rc1/go-no-go-decision.md).
+
+## Go/no-go decision record
+
+The canonical decision log for RC1 is:
+
+- [../evidence/rc1/go-no-go-decision.md](../evidence/rc1/go-no-go-decision.md)
+
+This record must include decision owners, timestamp, accepted risks, and follow-up actions.
 
 ## Rollback
 
@@ -106,6 +127,11 @@ Communication channels:
 - Escalation: incident channel.
 - Summary artifact: release summary note linked in this file after each release.
 
+Release summary artifact path:
+
+- `docs/evidence/rc1/release-summary-rc1.md`
+- [../evidence/rc1/release-summary-rc1.md](../evidence/rc1/release-summary-rc1.md)
+
 ## Success criteria
 
 - Critical workflows complete successfully in production-like checks.
@@ -125,5 +151,8 @@ Communication channels:
 - [../05_testing_acceptance/03_verification_evidence_index.md](../05_testing_acceptance/03_verification_evidence_index.md)
 - [../06_security_operations/04_support_model.md](../06_security_operations/04_support_model.md)
 - [../06_security_operations/06_incident_response.md](../06_security_operations/06_incident_response.md)
+- [../evidence/rc1/go-no-go-decision.md](../evidence/rc1/go-no-go-decision.md)
+- [../evidence/rc1/support-contact-roster.md](../evidence/rc1/support-contact-roster.md)
+- [../evidence/rc1/release-summary-rc1.md](../evidence/rc1/release-summary-rc1.md)
 
 <!-- markdownlint-enable MD013 -->

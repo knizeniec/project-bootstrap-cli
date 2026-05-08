@@ -68,6 +68,11 @@ Assumptions:
 - A baseline quality standard checklist (completeness, structure, consistency, content substance) can be codified and applied automatically.
 - One unified Q&A flow (not multiple size-specific flows) can determine project scale and complexity via answers, enabling scope recommendations across all sizes.
 
+Template source portability policy:
+
+- Template source resolution order: CLI argument -> `DOCS_TEMPLATE_SOURCE` environment variable -> repository default (`context/docs`).
+- If none resolves, fail fast with actionable path guidance and do not proceed with generation.
+
 ## Risks and dependencies
 
 Top risks:

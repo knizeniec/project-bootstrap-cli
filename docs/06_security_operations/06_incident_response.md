@@ -94,8 +94,8 @@ Review SLA:
 
 ## Drill schedule tracking
 
-- Last drill date: TBD
-- Next drill due: TBD (before next go/no-go checkpoint)
+- Last drill date: 2026-05-08 ([RC1 incident drill evidence](../evidence/rc1/incident-drill-2026-05-08.md))
+- Next drill due: 2026-05-29 (owner: incident manager)
 
 ## Related documents
 
