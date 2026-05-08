@@ -4,12 +4,14 @@ status: active
 record_class: canonical
 audience: [internal, manager]
 owner: release-manager
-capability: delivery
+capability: execution
 phase: execution
 cadence: per-release
 last_reviewed: 2026-05-08
 source_of_truth: repo
 ---
+
+<!-- markdownlint-disable MD013 -->
 
 ## Release scope
 
@@ -53,12 +55,19 @@ Release candidate label: `RC-1`
 
 | Check | Owner | Required state |
 | --- | --- | --- |
-| Evidence matrix updated | QA lead | All P0 checks not in `Planned` |
-| Readiness tracker updated | Release manager | Test/Release/Ops at least Amber with current notes |
+| Evidence matrix updated | QA lead | P0 rows passed or risk-accepted; P1 exceptions documented |
+| Readiness tracker updated | Release manager | Test, Release, and Ops at least Amber with dated notes |
 | Open Sev-1 defects | Engineering lead | 0 |
 | Open Sev-2 defects | Product owner | Mitigation and acceptance documented |
 | Support rota confirmed | Operations lead | Next 7 days staffed |
-| Incident channel prepared | Incident manager | Active channel + escalation contacts verified |
+| Incident channel prepared | Incident manager | Active channel and escalation contacts verified |
+
+Gate interpretation notes:
+
+- A P1 exception is valid only when owner, linked issue ID, and target date are present.
+- Go/no-go cannot proceed while any P0 evidence row is `Fail`.
+- UAT-LITE-001 and REL-REHEARSAL-001 must be linked in the evidence index before final go/no-go.
+- Readiness notes must include the latest update date and remaining blocker summary.
 
 ## Rollback
 
@@ -73,9 +82,17 @@ Rollback actions:
 - Restore last validated docs outputs for internal users.
 - Communicate rollback status and expected recovery timeline.
 
-Rollback decision owner: release manager, advised by engineering lead and incident manager.
+Rollback decision owner during active incident: incident commander.
+
+Rollback decision owner outside active incident: release manager.
 
 Maximum rollback decision time target: 20 minutes from Sev-1 confirmation.
+
+## Incident decision authority
+
+- During an active incident, the incident commander has sole decision authority for containment, rollback, and recovery sequencing.
+- The incident manager owns incident preparedness and channel readiness before incidents, but does not override active-incident decisions.
+- The release manager owns normal release sequencing and go/no-go decisions when no incident is active.
 
 ## Communications plan
 
@@ -108,3 +125,5 @@ Communication channels:
 - [../05_testing_acceptance/03_verification_evidence_index.md](../05_testing_acceptance/03_verification_evidence_index.md)
 - [../06_security_operations/04_support_model.md](../06_security_operations/04_support_model.md)
 - [../06_security_operations/06_incident_response.md](../06_security_operations/06_incident_response.md)
+
+<!-- markdownlint-enable MD013 -->

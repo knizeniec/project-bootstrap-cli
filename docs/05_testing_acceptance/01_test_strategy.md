@@ -4,12 +4,14 @@ status: active
 record_class: canonical
 audience: [internal, manager]
 owner: qa-lead
-capability: testing_acceptance
+capability: quality
 phase: planning
 cadence: per-stage
 last_reviewed: 2026-05-08
 source_of_truth: repo
 ---
+
+<!-- markdownlint-disable MD013 -->
 
 ## Scope
 
@@ -63,6 +65,17 @@ Out of scope for this phase:
 | Integration | INT-FLOW | Intake -> assessment -> generation -> review handoff |
 | End-to-end | E2E-SMALL-001 | Full run for one small-scope project |
 | UAT-lite | UAT-LITE-001 | Product-owner walkthrough and sign-off notes |
+| Release rehearsal | REL-REHEARSAL-001 | Rehearsal run with rollback decision drill output |
+
+### Suite to evidence test-ref mapping
+
+| Strategy suite ID | Evidence test refs |
+| --- | --- |
+| UNIT-CORE | Reserved for unit-level evidence rows as needed |
+| INT-FLOW | INT-ASS-001, INT-ASS-002, INT-ASS-003, INT-GEN-001, INT-REV-001 |
+| E2E-SMALL-001 | E2E-QA-001, E2E-READ-001, PERF-001, SEC-001 |
+| UAT-LITE-001 | UAT-LITE-001 |
+| REL-REHEARSAL-001 | REL-REHEARSAL-001 |
 
 ## Environments
 
@@ -105,6 +118,7 @@ Out of scope for this phase:
 
 - On every merge candidate: run UNIT-CORE and INT-FLOW.
 - On release candidate: run E2E-SMALL-001 and update evidence matrix.
+- Before go/no-go: run REL-REHEARSAL-001 and attach rehearsal output.
 - Before go/no-go: complete UAT-LITE-001 and attach sign-off note.
 
 ## Defect management cross-link
@@ -123,3 +137,5 @@ Severity handling for this project:
 - [../02_product/01_prd.md](../02_product/01_prd.md)
 - [../03_architecture/01_solution_design.md](../03_architecture/01_solution_design.md)
 - [../07_delivery/06_readiness_tracker.md](../07_delivery/06_readiness_tracker.md)
+
+<!-- markdownlint-enable MD013 -->

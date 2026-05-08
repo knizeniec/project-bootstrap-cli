@@ -4,12 +4,14 @@ status: active
 record_class: canonical
 audience: [internal, manager]
 owner: incident-manager
-capability: security_operations
+capability: operations
 phase: execution
-cadence: as-needed
+cadence: ad-hoc
 last_reviewed: 2026-05-08
 source_of_truth: repo
 ---
+
+<!-- markdownlint-disable MD013 -->
 
 ## Severity classes
 
@@ -45,16 +47,16 @@ Operational checklist for active incidents:
 
 ## Roles
 
-- Incident manager: coordination and decision authority during response.
+- Incident commander: single decision authority during an active incident.
+- Incident manager: preparedness owner outside active incidents (runbooks, drills, staffing checks).
 - Operations lead: service state and communications cadence.
 - Engineering lead: root-cause remediation and patch guidance.
 - Release manager: go/no-go decision for recovery releases.
 
-Command structure:
+Authority rule:
 
-- Incident commander: single-threaded decision authority during active incident.
-- Technical lead: coordinates diagnosis and remediation actions.
-- Communications lead: ensures timely status updates to stakeholders.
+- During active incidents, the incident commander is the only decision authority for containment and recovery steps.
+- The incident manager supports coordination but does not override active-incident decisions.
 
 ## Communications
 
@@ -90,8 +92,15 @@ Review SLA:
 - Capture gaps and add corrective actions to the delivery backlog.
 - Update this response doc when drill outcomes reveal process weaknesses.
 
+## Drill schedule tracking
+
+- Last drill date: TBD
+- Next drill due: TBD (before next go/no-go checkpoint)
+
 ## Related documents
 
 - [04_support_model.md](04_support_model.md)
 - [../07_delivery/07_release_plan.md](../07_delivery/07_release_plan.md)
 - [../07_delivery/06_readiness_tracker.md](../07_delivery/06_readiness_tracker.md)
+
+<!-- markdownlint-enable MD013 -->

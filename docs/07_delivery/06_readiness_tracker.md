@@ -11,31 +11,37 @@ last_reviewed: 2026-05-08
 source_of_truth: repo
 ---
 
+<!-- markdownlint-disable MD013 -->
+
 ## Per-readiness-domain register
 
-| Domain | Status | Owner | Gating evidence link |
+| Domain | Status | Owner | Gating evidence |
 | --- | --- | --- | --- |
-| Scope | Green | Product owner | [PRD](../02_product/01_prd.md) and [Project Brief](../00_governance/00_project_brief.md) approved for baseline scope. |
-| Design | Green | Architecture owner | [Solution Design](../03_architecture/01_solution_design.md) defines modular architecture and constraints. |
-| Build | Red | Engineering lead | Blocked: backlog not created, module sequencing not finalized. Recovery: finalize implementation backlog and confirm integration test coverage. |
-| Test | Amber | QA lead | Strategy and evidence index created: [Test Strategy](../05_testing_acceptance/01_test_strategy.md), [Verification Evidence Index](../05_testing_acceptance/03_verification_evidence_index.md). Remaining: execute suites and replace pending evidence rows with run artifacts. |
-| Release | Amber | Release manager | [Release Plan](../07_delivery/07_release_plan.md) created with sequence, rollback, and comms. Remaining: run release rehearsal and complete go/no-go evidence. |
-| Ops | Amber | Operations lead | [Support Model](../06_security_operations/04_support_model.md) and [Incident Response](../06_security_operations/06_incident_response.md) created. Remaining: confirm on-call staffing and run incident drill. |
+| Scope | Green | Product owner | [PRD](../02_product/01_prd.md), [Project Brief](../00_governance/00_project_brief.md) |
+| Design | Green | Architecture owner | [Solution Design](../03_architecture/01_solution_design.md) |
+| Build | Red | Engineering lead | Implementation backlog and integration coverage evidence |
+| Test | Amber | QA lead | [Test Strategy](../05_testing_acceptance/01_test_strategy.md), [Verification Evidence Index](../05_testing_acceptance/03_verification_evidence_index.md) |
+| Release | Amber | Release manager | [Release Plan](../07_delivery/07_release_plan.md) |
+| Ops | Amber | Operations lead | [Support Model](../06_security_operations/04_support_model.md), [Incident Response](../06_security_operations/06_incident_response.md) |
+
+## Ownership handoff note
+
+For delivery-to-operations handoff ownership and backup assignments, use the ownership matrix in [../06_security_operations/04_support_model.md#ownership-matrix](../06_security_operations/04_support_model.md#ownership-matrix).
 
 ## Notes and recovery actions
 
 - Build to Green:
-  - Finalize module backlog and implementation sequencing.
-  - Confirm integration test coverage for Q&A, assessment, generation, and review modules.
+- Finalize module backlog and implementation sequencing.
+- Confirm integration test coverage for Q&A, assessment, generation, and review modules.
 - Test to Green:
-  - Execute integration and end-to-end suites.
-  - Replace pending evidence index rows with concrete run IDs and artifact links.
+- Execute integration and end-to-end suites.
+- Replace pending evidence rows with concrete run IDs and artifact links.
 - Release to Green:
-  - Run release rehearsal against staged environment.
-  - Validate go/no-go criteria against updated acceptance evidence.
+- Run release rehearsal against staged environment.
+- Validate go/no-go criteria against updated acceptance evidence.
 - Ops to Green:
-  - Confirm support rota and escalation coverage.
-  - Complete one incident simulation and publish follow-up actions.
+- Confirm support rota and escalation coverage.
+- Complete one incident simulation and publish follow-up actions.
 
 ## Related documents
 
@@ -48,3 +54,5 @@ source_of_truth: repo
 - [07_release_plan.md](07_release_plan.md)
 - [../06_security_operations/04_support_model.md](../06_security_operations/04_support_model.md)
 - [../06_security_operations/06_incident_response.md](../06_security_operations/06_incident_response.md)
+
+<!-- markdownlint-enable MD013 -->

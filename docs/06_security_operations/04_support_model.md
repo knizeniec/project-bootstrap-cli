@@ -4,7 +4,7 @@ status: active
 record_class: canonical
 audience: [internal, manager]
 owner: operations-lead
-capability: security_operations
+capability: operations
 phase: execution
 cadence: monthly
 last_reviewed: 2026-05-08
