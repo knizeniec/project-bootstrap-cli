@@ -35,15 +35,25 @@ Local Linux workspace using repository docs set
 
 ```bash
 cd /home/hexaper/project-bootstrap-cli
-git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
-PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/int-review-baseline.md
-grep -n "RC-1-INT-REV" docs/05_testing_acceptance/03_verification_evidence_index.md
-grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+RUN_DATE="${RUN_DATE:-$(date +%F)}"
+artifact="docs/evidence/rc1/artifacts/RC1-INT-REV-${RUN_DATE}.md"
+mkdir -p "$(dirname "$artifact")"
+{
+	echo "# RC-1-INT-REV baseline findings"
+	echo "## markdownlint output"
+	git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2 || true
+	echo "## docs validator output"
+	PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1 || true
+	echo "## Evidence docs headings check"
+	rg -n "^## (Run ID|Result|Notes|Linked issue IDs)$" docs/evidence/rc1/*.md
+} | tee "$artifact"
 ```
+
+Pass/fail interpretation: `|| true` keeps artifact generation running even if checks fail. Treat any markdownlint error output or docs-validator error output in this artifact as a failed check.
 
 ## Artifact pattern
 
-docs/evidence/rc1/artifacts/RC1-INT-REV-2026-05-08.md
+docs/evidence/rc1/artifacts/RC1-INT-REV-${RUN_DATE}.md
 
 ## Result
 

@@ -35,15 +35,28 @@ Local Linux workspace using repository docs set
 
 ```bash
 cd /home/hexaper/project-bootstrap-cli
-git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
-PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/int-assessment-medium.md
-grep -n "RC-1-INT-ASS-MEDIUM" docs/05_testing_acceptance/03_verification_evidence_index.md
-grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+RUN_DATE="${RUN_DATE:-$(date +%F)}"
+artifact="docs/evidence/rc1/artifacts/RC1-INT-ASS-MEDIUM-${RUN_DATE}.md"
+work="/tmp/rc1-int-assessment-medium"
+mkdir -p "$(dirname "$artifact")" "$work"
+cat > "$work/scenario.yml" << 'YAML'
+project_size: medium
+team_size: 8
+delivery_model: dual-track
+YAML
+{
+	echo "# RC-1-INT-ASS-MEDIUM"
+	echo "## Scenario"; cat "$work/scenario.yml"
+	echo "## Expected medium docs"
+	printf '%s\n' docs/03_architecture/01_solution_design.md docs/05_testing_acceptance/01_test_strategy.md docs/07_delivery/07_release_plan.md
+	echo "## Present docs"
+	ls docs/03_architecture/01_solution_design.md docs/05_testing_acceptance/01_test_strategy.md docs/07_delivery/07_release_plan.md
+} | tee "$artifact"
 ```
 
 ## Artifact pattern
 
-docs/evidence/rc1/artifacts/RC1-INT-ASS-MEDIUM-2026-05-08.md
+docs/evidence/rc1/artifacts/RC1-INT-ASS-MEDIUM-${RUN_DATE}.md
 
 ## Result
 

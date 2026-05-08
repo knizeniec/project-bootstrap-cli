@@ -35,15 +35,23 @@ Local Linux workspace using repository docs set
 
 ```bash
 cd /home/hexaper/project-bootstrap-cli
-git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
-PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/perf-response-time.md
-grep -n "RC-1-PERF-001" docs/05_testing_acceptance/03_verification_evidence_index.md
-grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+RUN_DATE="${RUN_DATE:-$(date +%F)}"
+artifact="docs/evidence/rc1/artifacts/RC1-PERF-001-${RUN_DATE}.md"
+elapsed_file="/tmp/rc1-perf-seconds.txt"
+mkdir -p "$(dirname "$artifact")"
+/usr/bin/time -f '%e' -o "$elapsed_file" sh -c "git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2 >/tmp/rc1-perf-lint.log 2>&1"
+seconds="$(cat "$elapsed_file")"
+{
+	echo "# RC-1-PERF-001 timing"
+	awk -v s="$seconds" 'BEGIN {thr=15; printf "elapsed_seconds=%.2f\nthreshold_seconds=%.2f\nwithin_threshold=%s\n", s, thr, (s<=thr?"yes":"no")} '
+	echo "## Lint output sample"
+	sed -n '1,40p' /tmp/rc1-perf-lint.log
+} | tee "$artifact"
 ```
 
 ## Artifact pattern
 
-docs/evidence/rc1/artifacts/RC1-PERF-001-2026-05-08.md
+docs/evidence/rc1/artifacts/RC1-PERF-001-${RUN_DATE}.md
 
 ## Result
 

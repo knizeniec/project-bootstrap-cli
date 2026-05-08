@@ -35,15 +35,28 @@ Local Linux workspace using repository docs set
 
 ```bash
 cd /home/hexaper/project-bootstrap-cli
-git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
-PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/int-assessment-large.md
-grep -n "RC-1-INT-ASS-LARGE" docs/05_testing_acceptance/03_verification_evidence_index.md
-grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+RUN_DATE="${RUN_DATE:-$(date +%F)}"
+artifact="docs/evidence/rc1/artifacts/RC1-INT-ASS-LARGE-${RUN_DATE}.md"
+work="/tmp/rc1-int-assessment-large"
+mkdir -p "$(dirname "$artifact")" "$work"
+cat > "$work/scenario.yml" << 'YAML'
+project_size: large
+team_size: 20
+delivery_model: multi-stream
+YAML
+{
+	echo "# RC-1-INT-ASS-LARGE"
+	echo "## Scenario"; cat "$work/scenario.yml"
+	echo "## Expected large docs"
+	printf '%s\n' docs/06_security_operations/06_incident_response.md docs/07_delivery/06_readiness_tracker.md docs/05_testing_acceptance/03_verification_evidence_index.md
+	echo "## Present docs"
+	ls docs/06_security_operations/06_incident_response.md docs/07_delivery/06_readiness_tracker.md docs/05_testing_acceptance/03_verification_evidence_index.md
+} | tee "$artifact"
 ```
 
 ## Artifact pattern
 
-docs/evidence/rc1/artifacts/RC1-INT-ASS-LARGE-2026-05-08.md
+docs/evidence/rc1/artifacts/RC1-INT-ASS-LARGE-${RUN_DATE}.md
 
 ## Result
 

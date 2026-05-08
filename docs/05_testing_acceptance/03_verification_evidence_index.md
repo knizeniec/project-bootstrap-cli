@@ -52,8 +52,8 @@ source_of_truth: repo
 
 | Test ref | Environment hint | Command hint | Artifact pattern hint |
 | --- | --- | --- | --- |
-| UAT-LITE-001 | Staging-like workspace | Product-owner guided CLI walkthrough | `uat-lite-signoff-<date>.md` |
-| REL-REHEARSAL-001 | Staging-like workspace | Full release rehearsal command set | `release-rehearsal-<date>.md` |
+| UAT-LITE-001 | Staging-like workspace | Product-owner guided CLI walkthrough (`RUN_DATE=YYYY-MM-DD`) | `uat-lite-signoff-${RUN_DATE}.md` |
+| REL-REHEARSAL-001 | Staging-like workspace | Full release rehearsal command set (`RUN_DATE=YYYY-MM-DD`) | `release-rehearsal-${RUN_DATE}.md` |
 
 ## Result taxonomy
 
@@ -77,8 +77,8 @@ source_of_truth: repo
 
 ## Open gaps
 
-- UAT-lite sign-off row is linked but still `Planned`.
-- Release rehearsal row is linked but still `Planned`.
+- All 11 matrix rows remain `Planned` (P0: 6, P1: 5); no RC1 execution results are recorded yet.
+- Release gate cannot proceed until all P0 rows are updated to `Pass` or `Pass with accepted risk` with linked evidence artifacts.
 
 ## Related documents
 

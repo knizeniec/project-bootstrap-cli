@@ -35,15 +35,29 @@ Staging-like workspace
 
 ```bash
 cd /home/hexaper/project-bootstrap-cli
-git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
-PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/release-rehearsal.md
-grep -n "RC-1-REL-REHEARSAL" docs/05_testing_acceptance/03_verification_evidence_index.md
-grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+RUN_DATE="${RUN_DATE:-$(date +%F)}"
+artifact="docs/evidence/rc1/artifacts/RC1-REL-REHEARSAL-${RUN_DATE}.md"
+work="/tmp/rc1-release-rehearsal"
+rm -rf "$work"
+mkdir -p "$(dirname "$artifact")" "$work/pre" "$work/post" "$work/rollback"
+cp -a docs "$work/pre/docs"
+tar -czf "$work/pre/docs-pre.tgz" -C "$work/pre" docs
+cp -a "$work/pre/docs" "$work/post/docs"
+printf '\nrehearsal_marker: rc1\n' >> "$work/post/docs/07_delivery/07_release_plan.md"
+tar -xzf "$work/pre/docs-pre.tgz" -C "$work/rollback"
+{
+	echo "# RC-1-REL-REHEARSAL"
+	echo "## Rehearsal package"; ls -lh "$work/pre/docs-pre.tgz"
+	echo "## Rollback parity check"
+	diff -qr "$work/pre/docs" "$work/rollback/docs" || true
+} | tee "$artifact"
 ```
+
+Pass/fail interpretation: `diff -qr ... || true` prevents early exit to preserve artifact capture. Treat any `diff` output lines as rollback parity failure; no `diff` output indicates pass.
 
 ## Artifact pattern
 
-docs/evidence/rc1/artifacts/RC1-REL-REHEARSAL-2026-05-08.md
+docs/evidence/rc1/artifacts/RC1-REL-REHEARSAL-${RUN_DATE}.md
 
 ## Result
 

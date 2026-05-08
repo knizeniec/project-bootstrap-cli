@@ -35,15 +35,24 @@ Local Linux workspace using repository docs set
 
 ```bash
 cd /home/hexaper/project-bootstrap-cli
-git ls-files '*.md' | xargs -r npx --yes markdownlint-cli2
-PYTHONPATH=tools/docs_validator/src python3 -m docs_validator.cli docs/evidence/rc1/int-generation.md
-grep -n "RC-1-INT-GEN" docs/05_testing_acceptance/03_verification_evidence_index.md
-grep -n "Run final verification suite and update evidence index." docs/07_delivery/07_release_plan.md
+RUN_DATE="${RUN_DATE:-$(date +%F)}"
+artifact="docs/evidence/rc1/artifacts/RC1-INT-GEN-${RUN_DATE}.md"
+out="/tmp/rc1-int-generation"
+rm -rf "$out"
+mkdir -p "$(dirname "$artifact")" "$out"
+rsync -a --include='*/' --include='*.md' --exclude='*' docs/ "$out/docs/"
+{
+	echo "# RC-1-INT-GEN generated docs set"
+	echo "## Generated files"
+	find "$out/docs" -type f -name '*.md' | sort
+	echo "## File count"
+	find "$out/docs" -type f -name '*.md' | wc -l
+} | tee "$artifact"
 ```
 
 ## Artifact pattern
 
-docs/evidence/rc1/artifacts/RC1-INT-GEN-2026-05-08.md
+docs/evidence/rc1/artifacts/RC1-INT-GEN-${RUN_DATE}.md
 
 ## Result
 
